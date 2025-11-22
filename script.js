@@ -1,5 +1,5 @@
 // Auto-bind btn1..btn11 to m1..m11
-const TOTAL = 12;
+const TOTAL = 112;
 
 // build array of {btn, audio}
 const tracks = [];
@@ -42,3 +42,4 @@ tracks.forEach(({ btn, audio }) => {
     btn.classList.add('fa-circle-play');
   });
 });
+
