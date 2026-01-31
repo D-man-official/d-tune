@@ -1098,3 +1098,35 @@ body {
     50% { opacity: 1; }
     100% { opacity: 0.5; }
 }
+
+.mobile-bottom-nav {
+    display: flex;
+    bottom: 0;
+}
+.music-player {
+    bottom: 60px; /* bottom nav height */
+}
+.control-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+@media (max-width: 480px) {
+    .control-buttons {
+        gap: 10px;
+    }
+
+    .control-btn,
+    .play-pause-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+}
+@media (max-width: 576px) {
+    .player-extras {
+        display: none;
+    }
+}
+
+
