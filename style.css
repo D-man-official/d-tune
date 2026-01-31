@@ -1104,7 +1104,7 @@ body {
     bottom: 0;
 }
 .music-player {
-    bottom: 60px; /* bottom nav height */
+    bottom: 80px; /* bottom nav height */
 }
 .control-buttons {
     flex-wrap: wrap;
