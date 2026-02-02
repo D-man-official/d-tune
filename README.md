@@ -1,109 +1,93 @@
-Alright, let’s forge a clean, practical **README.md** for your **d-tune** website.
-No fluff, no drama—just something that looks professional on GitHub and explains what the project actually does.
-
-You can copy-paste this directly into a file named **README.md** in your repo.
-
----
-
-```markdown
 # 🎵 D-Tune
 
-D-Tune is a simple and clean music streaming web project built using **HTML, CSS, and JavaScript**.  
-It allows users to play songs, view recently played tracks, and enjoy a minimal audio-player experience directly in the browser.
+D-Tune is a simple and lightweight music streaming web application built using **HTML, CSS, and JavaScript**.  
+It allows users to play songs directly in the browser with basic controls and a clean, minimal interface.
 
-This project is mainly created for **learning, practice, and experimentation** with front-end web development.
+This project is created for learning front-end development and practicing JavaScript audio handling.
 
 ---
 
 ## 🚀 Features
 
-- 🎶 Play and pause songs
-- ⏭️ Next and previous track controls
-- 📃 Recently played songs section
-- 🎧 Clean and simple music player UI
-- 💻 Works directly in the browser (no backend)
+- Play and pause music
+- Next and previous track controls
+- Multiple song folders support
+- Clean and simple music player UI
+- Runs completely in the browser (no backend)
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **HTML** – Structure of the website  
-- **CSS** – Styling and layout  
-- **JavaScript** – Audio control and interactivity  
+- HTML – Page structure  
+- CSS – Styling and layout  
+- JavaScript – Audio control and interactivity  
 
 ---
 
 ## 📂 Project Structure
 
 ```
-
 d-tune/
 │
-├── index.html        # Main HTML file
-├── style.css         # CSS styles
-├── script.js         # JavaScript logic
-├── songs/            # Audio files
-├── images/           # Images/icons
-└── README.md         # Project documentation
-
-````
+├── music2/
+├── music3/
+├── music4/
+├── music5/
+├── dtune.png
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
 
 ---
 
 ## ▶️ How to Run the Project
 
-1. Download or clone the repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/D-man-official/d-tune.git
-````
+   ```
 
-2. Open the folder and double-click **index.html**
-   **OR** open it using Live Server in VS Code.
+2. Open the project folder.
 
-3. Enjoy the music 🎵
+3. Open `index.html` in any modern browser  
+   (or use Live Server in VS Code)
+
+4. Enjoy the music 🎵
 
 ---
 
 ## 🎯 Purpose of This Project
 
-* Practice **JavaScript audio handling**
-* Improve **front-end development skills**
-* Understand **DOM manipulation**
-* Build a real-world mini project
+- Practice JavaScript audio APIs
+- Improve DOM manipulation skills
+- Build a real-world front-end mini project
+- Understand project structuring
 
 ---
 
 ## 🔮 Future Improvements
 
-* Volume control
-* Song progress bar
-* Playlist support
-* Mobile responsiveness improvements
-* Backend integration for user accounts
+- Volume control
+- Song progress bar
+- Playlist support
+- Better mobile responsiveness
+- Search and filter songs
 
 ---
 
 ## 👤 Author
 
-**Dhiman Sutradhar**
-GitHub: [D-man-official](https://github.com/D-man-official)
+Dhiman Sutradhar  
+Front-End Developer | BCA Student  
+
+GitHub: https://github.com/D-man-official
 
 ---
 
 ## 📜 License
 
-This project is open-source and free to use for learning purposes.
-
-```
-
----
-
-This README hits the sweet spot:  
-simple English (easy to understand), professional look, and GitHub-friendly.
-
-Next natural evolution would be:
-- adding screenshots section 📸  
-- or a live demo link 🌐  
-
-Both make a repo feel “alive,” like a real product instead of a homework file.
-```
+This project is open-source and created for educational purposes.  
+You are free to modify and use it for learning.
