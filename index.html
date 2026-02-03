@@ -1,624 +1,736 @@
 <!-- Replace the entire index.html file content with this -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D-Tune - Modern Music Player</title>
-    
+
     <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
     <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
-   <link rel="icon" type="image/png" href="./dtune.png">
+    <link rel="icon" type="image/png" href="./dtune.png" />
+  </head>
+  <body>
+    <!-- Mobile Search Overlay -->
+    <div class="mobile-search" id="mobileSearch">
+      <div class="mobile-search-box">
+        <input
+          type="text"
+          id="mobileSearchInput"
+          placeholder="Search songs or artists..."
+        />
+        <button id="closeMobileSearch">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-</head>
-<body>
-    <!-- Mobile Top Bar -->
-  
-    <div class="mobile-top-bar">
-        <button class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-         <a href="./index.html" style="text-decoration: none;">
-       <div class="mobile-logo">
-            <i class="fas fa-music"></i>
-            <span>D-Tune</span>
-        </div>
-        </a>
-        
-        <button class="search-toggle">
-            <i class="fas fa-search"></i>
-        </button>
+      <!-- ✅ RESULTS MUST BE HERE -->
+      <div class="mobile-search-results" id="mobileSearchResults"></div>
     </div>
-    
+
+    <!-- Mobile Top Bar -->
+
+    <div class="mobile-top-bar">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a href="./index.html" style="text-decoration: none">
+        <div class="mobile-logo">
+          <i class="fas fa-music"></i>
+          <span>D-Tune</span>
+        </div>
+      </a>
+
+      <button class="search-toggle">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-             <a href="./index.html" style="text-decoration: none;">
-            <div class="logo" >
-                <i class="fas fa-headphones"></i>
-                <h1 >D-Tune</h1>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <a href="./index.html" style="text-decoration: none">
+          <div class="logo">
+            <i class="fas fa-headphones"></i>
+            <h1>D-Tune</h1>
+          </div>
+        </a>
+
+        <nav class="main-nav">
+          <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-book"></i>
+            <span>Your Library</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-plus-square"></i>
+            <span>Create Playlist</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-heart"></i>
+            <span>Liked Songs</span>
+          </a>
+        </nav>
+
+        <div class="playlists">
+          <h3>Your Playlists</h3>
+          <div class="playlist-item" id="fakira-link">
+            <i class="fas fa-music"></i>
+            <span>F A K I R A ❤️</span>
+          </div>
+
+          <div class="playlist-item">
+            <i class="fas fa-music"></i>
+            <span>Top Hits 2024</span>
+          </div>
+          <div class="playlist-item">
+            <i class="fas fa-music"></i>
+            <span>Chill Vibes</span>
+          </div>
+          <div class="playlist-item">
+            <i class="fas fa-music"></i>
+            <span>Workout Mix</span>
+          </div>
+        </div>
+
+        <div class="user-profile">
+          <div class="profile-img">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="profile-info">
+            <span class="profile-name">Music Lover</span>
+            <span class="profile-status">Premium</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Top Navigation -->
+        <div class="top-nav">
+          <div class="nav-buttons">
+            <button class="nav-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="nav-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="top-nav-right">
+            <button class="upgrade-btn">
+              <i class="fas fa-crown"></i>
+              <span>Upgrade to Premium</span>
+            </button>
+            <button class="install-btn">
+              <i class="fas fa-download"></i>
+              <span>Install App</span>
+            </button>
+            <button class="profile-btn">
+              <i class="fas fa-user-circle"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content-wrapper" id="homeContent">
+          <!-- Welcome Section -->
+          <section class="welcome-section">
+            <h1>Good afternoon</h1>
+            <div class="quick-play-grid">
+              <div class="quick-play-card" data-song="m1">
+                <img src="./asset/Bhromor.jpg" alt="Bhromor" />
+                <span>Bhromor</span>
+                <button class="play-icon">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="quick-play-card" data-song="m2">
+                <img
+                  src="./asset/Dawshom-Awbotaar-Bengali.jpg"
+                  alt="Aami Shei Manushta Aar Nei"
+                />
+                <span>Aami Shei Manushta</span>
+                <button class="play-icon">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="quick-play-card" data-song="m5">
+                <img src="./asset/husn.jpg" alt="HUSN" />
+                <span>HUSN</span>
+                <button class="play-icon">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
             </div>
-            </a>
-            
-            <nav class="main-nav">
-                <a href="#" class="nav-item active">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-search"></i>
-                    <span>Search</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-book"></i>
-                    <span>Your Library</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-plus-square"></i>
-                    <span>Create Playlist</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-heart"></i>
-                    <span>Liked Songs</span>
-                </a>
-            </nav>
+          </section>
 
-            <div class="playlists">
-                <h3>Your Playlists</h3>
-                <div class="playlist-item">
-                    <i class="fas fa-music"></i>
-                    <span>F A K I R A ❤️</span>
-                </div>
-                <div class="playlist-item">
-                    <i class="fas fa-music"></i>
-                    <span>Top Hits 2024</span>
-                </div>
-                <div class="playlist-item">
-                    <i class="fas fa-music"></i>
-                    <span>Chill Vibes</span>
-                </div>
-                <div class="playlist-item">
-                    <i class="fas fa-music"></i>
-                    <span>Workout Mix</span>
-                </div>
+          <!-- Recently Played -->
+          <section class="section" id="fakira-section">
+            <div class="section-header">
+              <h2>F A K I R A ❤️</h2>
+
+              <a href="#" class="see-all">See all</a>
             </div>
+            <div class="music-grid">
+              <!-- Card 1 -->
+              <div class="music-card" data-song="m4">
+                <div class="card-img">
+                  <img src="./fakira/FK1/FK_IMG1/BHROMOR.jpg" alt="Bhromor" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Bhromor</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
 
-            <div class="user-profile">
-                <div class="profile-img">
-                    <i class="fas fa-user"></i>
+              <!-- Card 2 -->
+              <div class="music-card" data-song="m5">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK1/FK_IMG1/BANKA NODI.jpg"
+                    alt="Sanson Ki Mala Pe"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
                 </div>
-                <div class="profile-info">
-                    <span class="profile-name">Music Lover</span>
-                    <span class="profile-status">Premium</span>
+                <div class="card-info">
+                  <h4 class="song-title">BANKA NODI</h4>
+                  <p class="artist">F A K I R A ❤️</p>
                 </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="music-card" data-song="m6">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK1/FK_IMG1/Bare Bare Aar Asha Hobena.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Bare Bare Aar Asha Hobena</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="music-card" data-song="m7">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK2/FK_IMG2/Pall Tule De.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Pall Tule De</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="music-card" data-song="m8">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK2/FK_IMG2/Sob Loke Koi Lalon.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Sob Loke Koi Lalon</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="music-card" data-song="m9">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK2/FK_IMG2/ANANDABAJAR.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Anandabajar</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="music-card" data-song="m10">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK3/FK_IMG3/DILDORIYA.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Dildoriya</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 8 -->
+              <div class="music-card" data-song="m11">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK3/FK_IMG3/Nizamuddin.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Nizamuddin</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 9 -->
+              <div class="music-card" data-song="m12">
+                <div class="card-img">
+                  <img
+                    src="./fakira/FK3/FK_IMG3/Somoy gele sadhon.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Somoy Gele Sadhon</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <!-- Card 9 -->
+              <div class="music-card" data-song="m13">
+                <div class="card-img">
+                  <img
+                    src=".//fakira/FK4/FK_IMG4/HARE KRISHNA.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Hare Krishna</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
+
+              <div class="music-card" data-song="m14">
+                <div class="card-img">
+                  <img
+                    src=".//fakira/FK4/FK_IMG4/Raai Jago.jpg"
+                    alt="Long Distance Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Raai Jago</h4>
+                  <p class="artist">F A K I R A ❤️</p>
+                </div>
+              </div>
             </div>
-        </aside>
+          </section>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Navigation -->
-            <div class="top-nav">
-                <div class="nav-buttons">
-                    <button class="nav-btn prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="nav-btn next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                <div class="top-nav-right">
-                    <button class="upgrade-btn">
-                        <i class="fas fa-crown"></i>
-                        <span>Upgrade to Premium</span>
-                    </button>
-                    <button class="install-btn">
-                        <i class="fas fa-download"></i>
-                        <span>Install App</span>
-                    </button>
-                    <button class="profile-btn">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
-                </div>
+          <!-- Trending Now -->
+          <section class="section">
+            <div class="section-header">
+              <h2>Trending Now Near You</h2>
+              <a href="#" class="see-all">See all</a>
             </div>
+            <div class="music-grid">
+              <!-- Cards for songs m1 through m8 -->
+              <div class="music-card" data-song="m1">
+                <div class="card-img">
+                  <img src="./asset/Bhromor.jpg" alt="Bhromor" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Bhromor</h4>
+                  <p class="artist">Fakira</p>
+                </div>
+              </div>
 
-            <!-- Content Sections -->
-            <div class="content-wrapper">
-                <!-- Welcome Section -->
-                <section class="welcome-section">
-                    <h1>Good afternoon</h1>
-                    <div class="quick-play-grid">
-                        <div class="quick-play-card" data-song="m1">
-                            <img src="./asset/Bhromor.jpg" alt="Bhromor">
-                            <span>Bhromor</span>
-                            <button class="play-icon">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <div class="quick-play-card" data-song="m2">
-                            <img src="./asset/Dawshom-Awbotaar-Bengali.jpg" alt="Aami Shei Manushta Aar Nei">
-                            <span>Aami Shei Manushta</span>
-                            <button class="play-icon">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                        <div class="quick-play-card" data-song="m5">
-                            <img src="./asset/husn.jpg" alt="HUSN">
-                            <span>HUSN</span>
-                            <button class="play-icon">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                </section>
+              <div class="music-card" data-song="m2">
+                <div class="card-img">
+                  <img
+                    src="./asset/Dawshom-Awbotaar-Bengali.jpg"
+                    alt="Aami Shei Manushta Aar Nei"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Aami Shei Manushta</h4>
+                  <p class="artist">Anupam Roy</p>
+                </div>
+              </div>
 
-                <!-- Recently Played -->
-                <section class="section">
-                    <div class="section-header">
-                        <h2>F A K I R A ❤️</h2>
-                        <a href="#" class="see-all">See all</a>
-                    </div>
-                    <div class="music-grid">
-                        <!-- Card 1 -->
-                        <div class="music-card" data-song="m4">
-                            <div class="card-img">
-                                <img src="./fakira/FK1/FK_IMG1/BHROMOR.jpg" alt="Bhromor">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info"> 
-                                <h4 class="song-title">Bhromor</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div> 
-                        </div>
+              <div class="music-card" data-song="m3">
+                <div class="card-img">
+                  <img
+                    src="./asset/Thakte Dis Re Maa.jpg"
+                    alt="Thakte Dis Re Maa"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Thakte Dis Re Maa</h4>
+                  <p class="artist">Keshab Dey</p>
+                </div>
+              </div>
 
-                        <!-- Card 2 -->
-                        <div class="music-card" data-song="m5">
-                            <div class="card-img">
-                                <img src="./fakira/FK1/FK_IMG1/BANKA NODI.jpg" alt="Sanson Ki Mala Pe">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">BANKA NODI </h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
+              <div class="music-card" data-song="">
+                <div class="card-img">
+                  <img
+                    src="./asset/Lage nh jiya tui 6ara.jpg"
+                    alt="Jiya Tui Chara"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Jiya Tui Chara</h4>
+                  <p class="artist">Arijit Singh</p>
+                </div>
+              </div>
 
-                        <!-- Card 3 -->
-                        <div class="music-card" data-song="m6">
-                            <div class="card-img">
-                                <img src="./fakira/FK1/FK_IMG1/Bare Bare Aar Asha Hobena.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Bare Bare Aar Asha Hobena</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                    
-                        <!-- Card 4 -->
-                        <div class="music-card" data-song="m7">
-                            <div class="card-img">
-                                <img src="./fakira/FK2/FK_IMG2/Pall Tule De.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Pall Tule De</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                    
-                        <!-- Card 5 -->
-                        <div class="music-card" data-song="m8">
-                            <div class="card-img">
-                                <img src="./fakira/FK2/FK_IMG2/Sob Loke Koi Lalon.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Sob Loke Koi Lalon</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                    
-                        <!-- Card 6 -->
-                        <div class="music-card" data-song="m9">
-                            <div class="card-img">
-                                <img src="./fakira/FK2/FK_IMG2/ANANDABAJAR.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Anandabajar</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
+              <div class="music-card" data-song="m5">
+                <div class="card-img">
+                  <img src="./asset/husn.jpg" alt="HUSN" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">HUSN</h4>
+                  <p class="artist">Anuv Jain</p>
+                </div>
+              </div>
 
-                        <!-- Card 7 -->
-                        <div class="music-card" data-song="m10">
-                            <div class="card-img">
-                                <img src="./fakira/FK3/FK_IMG3/DILDORIYA.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Dildoriya</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
+              <div class="music-card" data-song="m6">
+                <div class="card-img">
+                  <img src="./asset/jhol.jpg" alt="JHOL" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">JHOL</h4>
+                  <p class="artist">Maanu x Annural Khalid</p>
+                </div>
+              </div>
 
-                        <!-- Card 8 -->
-                        <div class="music-card" data-song="m11">
-                            <div class="card-img">
-                                <img src="./fakira/FK3/FK_IMG3/Nizamuddin.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Nizamuddin</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
+              <div class="music-card" data-song="m7">
+                <div class="card-img">
+                  <img src="./asset/Ehasaas.jpg" alt="EHASAAS" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">EHASAAS</h4>
+                  <p class="artist">Faheem Abdullah</p>
+                </div>
+              </div>
 
-                        <!-- Card 9 -->
-                        <div class="music-card" data-song="m12">
-                            <div class="card-img">
-                                <img src="./fakira/FK3/FK_IMG3/Somoy gele sadhon.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Somoy Gele Sadhon</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 9 -->
-                        <div class="music-card" data-song="m13">
-                            <div class="card-img">
-                                <img src=".//fakira/FK4/FK_IMG4/HARE KRISHNA.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Hare Krishna</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                        
-                        <div class="music-card" data-song="m14">
-                            <div class="card-img">
-                                <img src=".//fakira/FK4/FK_IMG4/Raai Jago.jpg" alt="Long Distance Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Raai Jago</h4>
-                                <p class="artist">F A K I R A ❤️</p>
-                            </div>
-                        </div>
-                    
-                    </div>
-            </section>
-
-                <!-- Trending Now -->
-                <section class="section">
-                    <div class="section-header">
-                        <h2>Trending Now Near You</h2>
-                        <a href="#" class="see-all">See all</a>
-                    </div>
-                    <div class="music-grid">
-                        <!-- Cards for songs m1 through m8 -->
-                        <div class="music-card" data-song="m1">
-                            <div class="card-img">
-                                <img src="./asset/Bhromor.jpg" alt="Bhromor">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Bhromor</h4>
-                                <p class="artist">Fakira</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m2">
-                            <div class="card-img">
-                                <img src="./asset/Dawshom-Awbotaar-Bengali.jpg" alt="Aami Shei Manushta Aar Nei">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Aami Shei Manushta</h4>
-                                <p class="artist">Anupam Roy</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m3">
-                            <div class="card-img">
-                                <img src="./asset/Thakte Dis Re Maa.jpg" alt="Thakte Dis Re Maa">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Thakte Dis Re Maa</h4>
-                                <p class="artist">Keshab Dey</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="">
-                            <div class="card-img">
-                                <img src="./asset/Lage nh jiya tui 6ara.jpg" alt="Jiya Tui Chara">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Jiya Tui Chara</h4>
-                                <p class="artist">Arijit Singh</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m5">
-                            <div class="card-img">
-                                <img src="./asset/husn.jpg" alt="HUSN">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">HUSN</h4>
-                                <p class="artist">Anuv Jain</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m6">
-                            <div class="card-img">
-                                <img src="./asset/jhol.jpg" alt="JHOL">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">JHOL</h4>
-                                <p class="artist">Maanu x Annural Khalid</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m7">
-                            <div class="card-img">
-                                <img src="./asset/Ehasaas.jpg" alt="EHASAAS">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">EHASAAS</h4>
-                                <p class="artist">Faheem Abdullah</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m8">
-                            <div class="card-img">
-                                <img src="./asset/Sokhi Tora Prem Korio Nh.jpg" alt="Sokhi Tora Prem Koriyo Na">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Sokhi Tora Prem Koriyo Na</h4>
-                                <p class="artist">Anirban Sur</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Featured Charts -->
-                <section class="section">
-                    <div class="section-header">
-                        <h2>Featured Charts</h2>
-                        <a href="#" class="see-all">See all</a>
-                    </div>
-                    <div class="music-grid">
-                        <!-- Cards for songs m9 through m12 -->
-                        <div class="music-card" data-song="m9">
-                            <div class="card-img">
-                                <img src="./asset/I Think This Call Love.jpg" alt="I Think This Call Love">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">I Think This Call Love</h4>
-                                <p class="artist">Matthew Ifield</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m10">
-                            <div class="card-img">
-                                <img src="./asset/Azzizam.jpg" alt="Azizam">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">Azizam</h4>
-                                <p class="artist">Ed Sheeran</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m11">
-                            <div class="card-img">
-                                <img src="./asset/Attentions.jpg" alt="ATTENTION">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">ATTENTION</h4>
-                                <p class="artist">Charlie Puth</p>
-                            </div>
-                        </div>
-
-                        <div class="music-card" data-song="m12">
-                            <div class="card-img">
-                                <img src="./asset/chanyaka.avif" alt="CHANAKYA">
-                                <button class="card-play-btn">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-info">
-                                <h4 class="song-title">CHANAKYA</h4>
-                                <p class="artist">RISHAB SHARMA</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+              <div class="music-card" data-song="m8">
+                <div class="card-img">
+                  <img
+                    src="./asset/Sokhi Tora Prem Korio Nh.jpg"
+                    alt="Sokhi Tora Prem Koriyo Na"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Sokhi Tora Prem Koriyo Na</h4>
+                  <p class="artist">Anirban Sur</p>
+                </div>
+              </div>
             </div>
-        </main>
+          </section>
+
+          <!-- Featured Charts -->
+          <section class="section">
+            <div class="section-header">
+              <h2>Featured Charts</h2>
+              <a href="#" class="see-all">See all</a>
+            </div>
+            <div class="music-grid">
+              <!-- Cards for songs m9 through m12 -->
+              <div class="music-card" data-song="m9">
+                <div class="card-img">
+                  <img
+                    src="./asset/I Think This Call Love.jpg"
+                    alt="I Think This Call Love"
+                  />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">I Think This Call Love</h4>
+                  <p class="artist">Matthew Ifield</p>
+                </div>
+              </div>
+
+              <div class="music-card" data-song="m10">
+                <div class="card-img">
+                  <img src="./asset/Azzizam.jpg" alt="Azizam" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">Azizam</h4>
+                  <p class="artist">Ed Sheeran</p>
+                </div>
+              </div>
+
+              <div class="music-card" data-song="m11">
+                <div class="card-img">
+                  <img src="./asset/Attentions.jpg" alt="ATTENTION" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">ATTENTION</h4>
+                  <p class="artist">Charlie Puth</p>
+                </div>
+              </div>
+
+              <div class="music-card" data-song="m12">
+                <div class="card-img">
+                  <img src="./asset/chanyaka.avif" alt="CHANAKYA" />
+                  <button class="card-play-btn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <div class="card-overlay"></div>
+                </div>
+                <div class="card-info">
+                  <h4 class="song-title">CHANAKYA</h4>
+                  <p class="artist">RISHAB SHARMA</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
 
     <!-- Music Player -->
     <div class="music-player">
-        <div class="player-album">
-            <div class="album-art">
-                <img src="./asset/Bhromor.jpg" alt="Current Song" id="current-song-img">
-                <div class="album-overlay"></div>
-            </div>
-            <div class="song-info">
-                <h4 id="current-song-title">Bhromor</h4>
-                <p id="current-song-artist">Fakira</p>
-            </div>
-            <button class="like-btn">
-                <i class="far fa-heart"></i>
-            </button>
+      <div class="player-album">
+        <div class="album-art">
+          <img
+            src="./asset/Bhromor.jpg"
+            alt="Current Song"
+            id="current-song-img"
+          />
+          <div class="album-overlay"></div>
+        </div>
+        <div class="song-info">
+          <h4 id="current-song-title">Bhromor</h4>
+          <p id="current-song-artist">Fakira</p>
+        </div>
+        <button class="like-btn">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+
+      <div class="player-controls">
+        <div class="control-buttons">
+          <button class="control-btn" id="shuffle-btn">
+            <i class="fas fa-random"></i>
+          </button>
+          <button class="control-btn" id="prev-btn">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="play-pause-btn" id="play-pause-btn">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="control-btn" id="next-btn">
+            <i class="fas fa-step-forward"></i>
+          </button>
+          <button class="control-btn" id="repeat-btn">
+            <i class="fas fa-redo"></i>
+          </button>
         </div>
 
-        <div class="player-controls">
-            <div class="control-buttons">
-                <button class="control-btn" id="shuffle-btn">
-                    <i class="fas fa-random"></i>
-                </button>
-                <button class="control-btn" id="prev-btn">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button class="play-pause-btn" id="play-pause-btn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="control-btn" id="next-btn">
-                    <i class="fas fa-step-forward"></i>
-                </button>
-                <button class="control-btn" id="repeat-btn">
-                    <i class="fas fa-redo"></i>
-                </button>
-            </div>
-            
-            <div class="progress-container">
-                <span class="time" id="current-time">0:00</span>
-                <div class="progress-bar">
-                    <div class="progress" id="progress"></div>
-                    <div class="progress-thumb" id="progress-thumb"></div>
-                    <input type="range" class="progress-input" id="progress-input" min="0" max="100" value="0">
-                </div>
-                <span class="time" id="total-time">0:00</span>
-            </div>
+        <div class="progress-container">
+          <span class="time" id="current-time">0:00</span>
+          <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+            <div class="progress-thumb" id="progress-thumb"></div>
+            <input
+              type="range"
+              class="progress-input"
+              id="progress-input"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </div>
+          <span class="time" id="total-time">0:00</span>
         </div>
+      </div>
 
-        <div class="player-extras">
-            <button class="extra-btn" id="queue-btn">
-                <i class="fas fa-list"></i>
-            </button>
-            <button class="extra-btn" id="device-btn">
-                <i class="fas fa-laptop"></i>
-            </button>
-            <div class="volume-control">
-                <button class="volume-btn" id="volume-btn">
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <div class="volume-bar">
-                    <div class="volume-level" id="volume-level"></div>
-                    <input type="range" class="volume-input" id="volume-input" min="0" max="100" value="80">
-                </div>
-            </div>
-            <button class="extra-btn" id="fullscreen-btn">
-                <i class="fas fa-expand"></i>
-            </button>
+      <div class="player-extras">
+        <button class="extra-btn" id="queue-btn">
+          <i class="fas fa-list"></i>
+        </button>
+        <button class="extra-btn" id="device-btn">
+          <i class="fas fa-laptop"></i>
+        </button>
+        <div class="volume-control">
+          <button class="volume-btn" id="volume-btn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div class="volume-bar">
+            <div class="volume-level" id="volume-level"></div>
+            <input
+              type="range"
+              class="volume-input"
+              id="volume-input"
+              min="0"
+              max="100"
+              value="80"
+            />
+          </div>
         </div>
+        <button class="extra-btn" id="fullscreen-btn">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
     </div>
-   
 
     <!-- Audio Elements (Hidden) -->
     <div class="audio-container">
+      <audio id="m4" src="./fakira/FK1/Bhromor.mp3"></audio>
+      <audio
+        id="m5"
+        src="./fakira/FK1/BANKA NODI ｜ VIDEO ｜ FAKIRA ｜ PRABHATI ｜ ALBUM - HARE KRISHNA ｜ BENGALI FOLK 2022 - Fakira.mp3"
+      ></audio>
+      <audio
+        id="m6"
+        src="./fakira/FK1/Bare Bare Aar Asha Hobena ｜ Bhoba Pagla ｜ Fakira's Folk Rock Twist - Fakira.mp3"
+      ></audio>
 
-        <audio id="m4" src="./fakira/FK1/Bhromor.mp3"></audio> 
-        <audio id="m5" src="./fakira/FK1/BANKA NODI ｜ VIDEO ｜ FAKIRA ｜ PRABHATI ｜ ALBUM - HARE KRISHNA ｜ BENGALI FOLK 2022 - Fakira.mp3"></audio> 
-        <audio id="m6" src="./fakira/FK1/Bare Bare Aar Asha Hobena ｜ Bhoba Pagla ｜ Fakira's Folk Rock Twist - Fakira.mp3"></audio> 
-       
-        <audio id="m7" src="./fakira/FK2/Paal Tule De(MP3_160K).mp3"></audio> 
-        <audio id="m8" src="./fakira/FK2/Sob Loke Koi Lalon _ Fakira _ Bengali Folk Song _ Baul Music of Lalon Fakir(MP3_160K).mp3"></audio> 
-        <audio id="m9" src="./fakira/FK2/ANANDABAJAR _ VIDEO _ FAKIRA _ PRABHATI _ ALBUM - HARE KRISHNA _ BENGALI FOLK 2022(MP3_160K).mp3"></audio> 
-       
-        <audio id="m10" src="./fakira/FK3/Dildoriya_ A Journey with Lalon Fakir _ Fakira_s Bengali Folk Fusion(MP3_160K) (2).mp3"></audio> 
-        <audio id="m11" src="./fakira/FK3/Nizamuddin _ Bangla Lokogeeti _ Bangla Band - Fakira _ Bengali Bengali Folk Song _ Audio(MP3_160K) (2).mp3"></audio> 
-        <audio id="m12" src="./fakira/FK3/Somoy Gele Sadhon(MP3_160K).mp3"></audio> 
-        
-        <audio id="m13" src="./fakira/FK4/Hare Krishna _ The Power of Devotional Music rediscovered by FAKIRA(MP3_160K).mp3"></audio> 
-        <audio id="m14" src="./fakira/FK4/Raai Jago (রাই জাগো) _ Prabhati song by FAKIRA _ Folk Fusion _ Hare Krishna(MP3_160K).mp3"></audio> 
+      <audio id="m7" src="./fakira/FK2/Paal Tule De(MP3_160K).mp3"></audio>
+      <audio
+        id="m8"
+        src="./fakira/FK2/Sob Loke Koi Lalon _ Fakira _ Bengali Folk Song _ Baul Music of Lalon Fakir(MP3_160K).mp3"
+      ></audio>
+      <audio
+        id="m9"
+        src="./fakira/FK2/ANANDABAJAR _ VIDEO _ FAKIRA _ PRABHATI _ ALBUM - HARE KRISHNA _ BENGALI FOLK 2022(MP3_160K).mp3"
+      ></audio>
 
+      <audio
+        id="m10"
+        src="./fakira/FK3/Dildoriya_ A Journey with Lalon Fakir _ Fakira_s Bengali Folk Fusion(MP3_160K) (2).mp3"
+      ></audio>
+      <audio
+        id="m11"
+        src="./fakira/FK3/Nizamuddin _ Bangla Lokogeeti _ Bangla Band - Fakira _ Bengali Bengali Folk Song _ Audio(MP3_160K) (2).mp3"
+      ></audio>
+      <audio
+        id="m12"
+        src="./fakira/FK3/Somoy Gele Sadhon(MP3_160K).mp3"
+      ></audio>
 
-        <!-- Recently Played -->
-        <!-- <audio id="m13" src="./music5/Merry-Go-Round of Life (from Howl_s Moving Castle)(MP3_160K).mp3"></audio>
+      <audio
+        id="m13"
+        src="./fakira/FK4/Hare Krishna _ The Power of Devotional Music rediscovered by FAKIRA(MP3_160K).mp3"
+      ></audio>
+      <audio
+        id="m14"
+        src="./fakira/FK4/Raai Jago (রাই জাগো) _ Prabhati song by FAKIRA _ Folk Fusion _ Hare Krishna(MP3_160K).mp3"
+      ></audio>
+
+      <!-- Recently Played -->
+      <!-- <audio id="m13" src="./music5/Merry-Go-Round of Life (from Howl_s Moving Castle)(MP3_160K).mp3"></audio>
         <audio id="m14" src="./music5/Sanson Ki Mala (Violin Cover)  Leo Twins  The Quarantine Sessions - Leo Twins.mp3"></audio>
         <audio id="m15" src="./music5/Long Distance Love  Coke Studio Bangla  Season 3  Ankan X Afrin  Shuvendu - Coke Studio Bangla.mp3"></audio>
         
         <!-- Trending Now -->
-<!--       
+      <!--       
         <audio id="m2" src="./music/Aami Shei Manushta Aar Nei (Original Motion Picture Soundtrack) - Anupam Roy.mp3"></audio>
         <audio id="m3" src="./music/Thakte Dis Re Maa  Keshab Dey  থাকতে দিস রে মা  Shyama Sangeet  Bhakti Geeti  Devotional Song - Keshab Dey.mp3"></audio>
         <audio id="m4" src="./music2/Jiya Tui Chara  Biye Bibhrat  Arijit Singh  Parambrata Chattopadhyay, Lahoma B  Ranajoy B - Zee Music Bangla.mp3"></audio>
@@ -627,34 +739,35 @@
         <audio id="m7" src="./music3/Ehsaas (Lyric Video) Faheem Abdullah  Vaibhav Pani  Hyder Dar - Universal Music India.mp3"></audio>
         <audio id="m8" src="./music3/Sokhi Tora Prem Koriyo Na  সখি তোরা প্রেম করিয়ো না   Full Video  Anirban Sur  Bengali Folk - Anirban Sur.mp3"></audio>
          -->
-        <!-- Featured Charts -->
-        <!-- <audio id="m9" src="./music3/I Think They Call This Love (Cover) - Matthew Ifield.mp3"></audio>
+      <!-- Featured Charts -->
+      <!-- <audio id="m9" src="./music3/I Think They Call This Love (Cover) - Matthew Ifield.mp3"></audio>
         <audio id="m10" src="./music4/Ed Sheeran - Azizam (Pink Heart Video) - Ed Sheeran.mp3"></audio>
         <audio id="m11" src="./music4/Charlie Puth - Attention [Official Video] - Charlie Puth.mp3"></audio>
-        <audio id="m12" src="./music4/Chanakya - Rishab Rikhiram Sharma (Live from Mumbai)  Sitar for Mental Health Tour 2024 - Rishab Rikhiram Sharma.mp3"></audio> --> -->
+        <audio id="m12" src="./music4/Chanakya - Rishab Rikhiram Sharma (Live from Mumbai)  Sitar for Mental Health Tour 2024 - Rishab Rikhiram Sharma.mp3"></audio> -->
+      -->
     </div>
 
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav">
-        <a href="#" class="nav-item active">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-search"></i>
-            <span>Search</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-book"></i>
-            <span>Library</span>
-        </a>
-        <a href="#" class="nav-item">
-            <i class="fas fa-music"></i>
-            <span>Premium</span>
-        </a>
+      <a href="#" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-search"></i>
+        <span>Search</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-book"></i>
+        <span>Library</span>
+      </a>
+      <a href="#" class="nav-item">
+        <i class="fas fa-music"></i>
+        <span>Premium</span>
+      </a>
     </nav>
 
     <!-- Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

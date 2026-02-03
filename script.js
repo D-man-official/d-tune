@@ -583,8 +583,47 @@ class MusicPlayer {
 
 // Initialize the music player when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // ================= FAKIRA SIDEBAR NAV =================
+  const fakiraLink = document.getElementById("fakira-link");
+  const fakiraSection = document.getElementById("fakira-section");
+
+  if (fakiraLink && fakiraSection) {
+    fakiraLink.addEventListener("click", () => {
+      fakiraSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
+
   // Create and initialize the music player
   window.musicPlayer = new MusicPlayer();
+  // ================= SEARCH FUNCTIONALITY =================
+  const searchInput = document.querySelector(".search-toggle")
+    ? document.querySelector(".search-toggle")
+    : null;
+
+  const searchField = document.createElement("input");
+  searchField.placeholder = "Search songs or artists...";
+  searchField.className = "global-search";
+  document.querySelector(".top-nav-right")?.prepend(searchField);
+
+  searchField.addEventListener("input", () => {
+    const query = searchField.value.toLowerCase().trim();
+
+    document.querySelectorAll(".music-card").forEach((card) => {
+      const title =
+        card.querySelector(".song-title")?.textContent.toLowerCase() || "";
+      const artist =
+        card.querySelector(".artist")?.textContent.toLowerCase() || "";
+
+      if (title.includes(query) || artist.includes(query)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
 
   // Add animation delays to cards
   const cards = document.querySelectorAll(".music-card, .quick-play-card");
@@ -693,6 +732,63 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => notification.remove(), 300);
       });
   }
+
+  // ================= MOBILE SEARCH LOGIC =================
+  const searchToggle = document.querySelector(".search-toggle");
+  const mobileSearch = document.getElementById("mobileSearch");
+  const mobileSearchInput = document.getElementById("mobileSearchInput");
+  const closeMobileSearch = document.getElementById("closeMobileSearch");
+  const resultsBox = document.getElementById("mobileSearchResults");
+  const homeContent = document.getElementById("homeContent");
+
+  searchToggle.addEventListener("click", () => {
+    mobileSearch.classList.add("active");
+    homeContent.style.display = "none";
+    mobileSearchInput.focus();
+  });
+
+  closeMobileSearch.addEventListener("click", () => {
+    mobileSearch.classList.remove("active");
+    homeContent.style.display = "";
+    mobileSearchInput.value = "";
+    resultsBox.innerHTML = "";
+  });
+
+  mobileSearchInput.addEventListener("input", () => {
+    const q = mobileSearchInput.value.toLowerCase().trim();
+    resultsBox.innerHTML = "";
+
+    if (!q) return;
+
+    document.querySelectorAll(".music-card").forEach((card) => {
+      const title = card.querySelector(".song-title")?.textContent || "";
+      const artist = card.querySelector(".artist")?.textContent || "";
+      const img = card.querySelector("img")?.src || "";
+      const songId = card.dataset.song;
+
+      if (title.toLowerCase().includes(q) || artist.toLowerCase().includes(q)) {
+        const div = document.createElement("div");
+        div.className = "mobile-search-card";
+        div.innerHTML = `
+        <img src="${img}">
+        <div class="mobile-search-info">
+          <h4>${title}</h4>
+          <p>${artist}</p>
+        </div>
+      `;
+
+        div.onclick = () => {
+          window.musicPlayer.playSong(songId);
+          mobileSearch.classList.remove("active");
+          homeContent.style.display = "";
+          resultsBox.innerHTML = "";
+          mobileSearchInput.value = "";
+        };
+
+        resultsBox.appendChild(div);
+      }
+    });
+  });
 });
 
 // Add CSS for notifications
@@ -753,3 +849,54 @@ notificationStyles.textContent = `
 `;
 
 document.head.appendChild(notificationStyles);
+// OPEN SEARCH
+searchToggle.addEventListener("click", () => {
+  mobileSearch.classList.add("active");
+  homeContent.style.display = "none";
+  mobileSearchInput.focus();
+});
+
+// CLOSE SEARCH
+closeMobileSearch.addEventListener("click", () => {
+  mobileSearch.classList.remove("active");
+  homeContent.style.display = "";
+  mobileSearchInput.value = "";
+  resultsBox.innerHTML = "";
+});
+
+// SEARCH FUNCTION
+mobileSearchInput.addEventListener("input", () => {
+  const q = mobileSearchInput.value.toLowerCase().trim();
+  resultsBox.innerHTML = "";
+
+  if (!q) return;
+
+  document.querySelectorAll(".music-card").forEach((card) => {
+    const title = card.querySelector(".song-title")?.textContent || "";
+    const artist = card.querySelector(".artist")?.textContent || "";
+    const img = card.querySelector("img")?.src || "";
+    const songId = card.dataset.song;
+
+    if (title.toLowerCase().includes(q) || artist.toLowerCase().includes(q)) {
+      const div = document.createElement("div");
+      div.className = "mobile-search-card";
+      div.innerHTML = `
+        <img src="${img}">
+        <div class="mobile-search-info">
+          <h4>${title}</h4>
+          <p>${artist}</p>
+        </div>
+      `;
+
+      div.onclick = () => {
+        window.musicPlayer.playSong(songId);
+        mobileSearch.classList.remove("active");
+        homeContent.style.display = "";
+        mobileSearchInput.value = "";
+        resultsBox.innerHTML = "";
+      };
+
+      resultsBox.appendChild(div);
+    }
+  });
+});
