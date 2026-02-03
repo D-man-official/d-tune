@@ -347,6 +347,7 @@ body {
 /* Content Wrapper */
 .content-wrapper {
   padding: 32px;
+  min-height: calc(100vh - 140px);
 }
 
 .welcome-section {
@@ -666,6 +667,10 @@ body {
   color: var(--primary-color);
 }
 
+.like-btn.active i {
+  color: var(--primary-color);
+}
+
 .player-controls {
   flex: 1;
   max-width: 600px;
@@ -885,6 +890,231 @@ body {
   font-size: 20px;
 }
 
+/* ================= LIKED SONGS PAGE STYLES ================= */
+.liked-header {
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 24px;
+}
+
+.liked-hero {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  width: 100%;
+}
+
+.liked-hero-image {
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.liked-hero-image i {
+  font-size: 100px;
+  color: white;
+}
+
+.liked-hero-info {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+.liked-playlist-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+}
+
+.liked-hero-info h1 {
+  font-size: 72px;
+  font-weight: 900;
+  margin: 8px 0 16px 0;
+  line-height: 1;
+}
+
+.liked-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.liked-stats .profile-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.liked-count {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.play-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.play-all-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.play-all-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.shuffle-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.shuffle-btn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.liked-songs-list {
+  background: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.liked-song-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.liked-song-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.liked-song-item.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.liked-song-number {
+  width: 24px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 16px;
+}
+
+.liked-song-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.liked-song-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.liked-song-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.liked-song-info h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.liked-song-info p {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.liked-song-like {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liked-song-like:hover {
+  background: rgba(29, 185, 84, 0.1);
+}
+
+.liked-song-duration {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  min-width: 40px;
+  text-align: right;
+}
+
+.empty-liked {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-liked i {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--text-tertiary);
+}
+
+.empty-liked h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.empty-liked p {
+  font-size: 16px;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .player-album {
@@ -938,6 +1168,20 @@ body {
 
   .content-wrapper {
     padding: 20px;
+  }
+
+  .liked-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .liked-hero-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .liked-hero-info h1 {
+    font-size: 48px;
   }
 
   .music-player {
@@ -998,6 +1242,19 @@ body {
     font-size: 20px;
   }
 
+  .liked-hero-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .liked-hero-info h1 {
+    font-size: 36px;
+  }
+
+  .play-controls {
+    flex-wrap: wrap;
+  }
+
   .player-controls {
     max-width: 100%;
   }
@@ -1022,6 +1279,31 @@ body {
 
   .artist {
     font-size: 12px;
+  }
+
+  .liked-hero {
+    gap: 16px;
+  }
+
+  .liked-hero-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .liked-hero-image i {
+    font-size: 60px;
+  }
+
+  .liked-hero-info h1 {
+    font-size: 28px;
+  }
+
+  .liked-song-item {
+    padding: 10px 12px;
+  }
+
+  .liked-song-number {
+    display: none;
   }
 
   .player-extras {
@@ -1188,54 +1470,6 @@ body {
   display: flex;
 }
 
-.mobile-search-results {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.mobile-search-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #181818;
-}
-
-.mobile-search-card img {
-  width: 48px;
-  height: 48px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.mobile-search-info h4 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mobile-search-info p {
-  font-size: 12px;
-  color: #aaa;
-  margin: 0;
-}
-/* ================= MOBILE SEARCH ================= */
-.mobile-search {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  z-index: 3000;
-  display: none;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.mobile-search.active {
-  display: flex;
-}
-
 .mobile-search-box {
   display: flex;
   gap: 10px;
@@ -1291,4 +1525,23 @@ body {
   font-size: 12px;
   color: #aaa;
   margin: 0;
+} /* Fix for search active state */
+#sidebar-search-nav.active,
+#mobile-search-nav.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+/* Ensure mobile search works on all screens */
+@media (max-width: 992px) {
+  .mobile-search.active ~ .container,
+  .mobile-search.active ~ .music-player,
+  .mobile-search.active ~ .mobile-bottom-nav {
+    display: none;
+  }
+
+  .mobile-search.active {
+    display: flex !important;
+  }
 }

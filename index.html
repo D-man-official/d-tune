@@ -41,7 +41,6 @@
     </div>
 
     <!-- Mobile Top Bar -->
-
     <div class="mobile-top-bar">
       <button class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -52,7 +51,6 @@
           <span>D-Tune</span>
         </div>
       </a>
-
       <button class="search-toggle">
         <i class="fas fa-search"></i>
       </button>
@@ -70,11 +68,11 @@
         </a>
 
         <nav class="main-nav">
-          <a href="#" class="nav-item active">
+          <a href="#" class="nav-item active" id="home-nav">
             <i class="fas fa-home"></i>
             <span>Home</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="#" class="nav-item" id="sidebar-search-nav">
             <i class="fas fa-search"></i>
             <span>Search</span>
           </a>
@@ -86,7 +84,7 @@
             <i class="fas fa-plus-square"></i>
             <span>Create Playlist</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="#" class="nav-item" id="liked-nav">
             <i class="fas fa-heart"></i>
             <span>Liked Songs</span>
           </a>
@@ -98,7 +96,6 @@
             <i class="fas fa-music"></i>
             <span>F A K I R A ❤️</span>
           </div>
-
           <div class="playlist-item">
             <i class="fas fa-music"></i>
             <span>Top Hits 2024</span>
@@ -113,16 +110,24 @@
           </div>
         </div>
 
-        <a href="https://www.facebook.com/dhiman.sutradhar.92" target="_blank" style="text-decoration: none;" >
-        <div class="user-profile">
-          <div class="profile-img">
-            <i class="fa-solid fa-d" ></i>
+        <a
+          href="https://www.facebook.com/dhiman.sutradhar.92"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <div class="user-profile">
+            <div class="profile-img">
+              <i class="fa-solid fa-d"></i>
+            </div>
+            <div class="profile-info">
+              <span
+                class="profile-name"
+                style="text-decoration: none; color: white"
+                >D MAN</span
+              >
+              <span class="profile-status">Premium</span>
+            </div>
           </div>
-          <div class="profile-info">
-            <span class="profile-name" style="text-decoration: none; color: white;">D MAN</span>
-            <span class="profile-status">Premium</span>
-          </div>
-        </div>
         </a>
       </aside>
 
@@ -153,7 +158,7 @@
           </div>
         </div>
 
-        <!-- Content Sections -->
+        <!-- Home Content (Default) -->
         <div class="content-wrapper" id="homeContent">
           <!-- Welcome Section -->
           <section class="welcome-section">
@@ -186,11 +191,10 @@
             </div>
           </section>
 
-          <!-- Recently Played -->
+          <!-- F A K I R A Section -->
           <section class="section" id="fakira-section">
             <div class="section-header">
               <h2>F A K I R A ❤️</h2>
-
               <a href="#" class="see-all">See all</a>
             </div>
             <div class="music-grid">
@@ -214,7 +218,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK1/FK_IMG1/BANKA NODI.jpg"
-                    alt="Sanson Ki Mala Pe"
+                    alt="BANKA NODI"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -232,7 +236,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK1/FK_IMG1/Bare Bare Aar Asha Hobena.jpg"
-                    alt="Long Distance Love"
+                    alt="Bare Bare Aar Asha Hobena"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -250,7 +254,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK2/FK_IMG2/Pall Tule De.jpg"
-                    alt="Long Distance Love"
+                    alt="Pall Tule De"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -268,7 +272,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK2/FK_IMG2/Sob Loke Koi Lalon.jpg"
-                    alt="Long Distance Love"
+                    alt="Sob Loke Koi Lalon"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -286,7 +290,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK2/FK_IMG2/ANANDABAJAR.jpg"
-                    alt="Long Distance Love"
+                    alt="ANANDABAJAR"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -304,7 +308,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK3/FK_IMG3/DILDORIYA.jpg"
-                    alt="Long Distance Love"
+                    alt="DILDORIYA"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -322,7 +326,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK3/FK_IMG3/Nizamuddin.jpg"
-                    alt="Long Distance Love"
+                    alt="Nizamuddin"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -340,7 +344,7 @@
                 <div class="card-img">
                   <img
                     src="./fakira/FK3/FK_IMG3/Somoy gele sadhon.jpg"
-                    alt="Long Distance Love"
+                    alt="Somoy Gele Sadhon"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -353,12 +357,12 @@
                 </div>
               </div>
 
-              <!-- Card 9 -->
+              <!-- Card 10 -->
               <div class="music-card" data-song="m13">
                 <div class="card-img">
                   <img
-                    src=".//fakira/FK4/FK_IMG4/HARE KRISHNA.jpg"
-                    alt="Long Distance Love"
+                    src="./fakira/FK4/FK_IMG4/HARE KRISHNA.jpg"
+                    alt="HARE KRISHNA"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -371,11 +375,12 @@
                 </div>
               </div>
 
+              <!-- Card 11 -->
               <div class="music-card" data-song="m14">
                 <div class="card-img">
                   <img
-                    src=".//fakira/FK4/FK_IMG4/Raai Jago.jpg"
-                    alt="Long Distance Love"
+                    src="./fakira/FK4/FK_IMG4/Raai Jago.jpg"
+                    alt="Raai Jago"
                   />
                   <button class="card-play-btn">
                     <i class="fas fa-play"></i>
@@ -397,7 +402,6 @@
               <a href="#" class="see-all">See all</a>
             </div>
             <div class="music-grid">
-              <!-- Cards for songs m1 through m8 -->
               <div class="music-card" data-song="m1">
                 <div class="card-img">
                   <img src="./asset/Bhromor.jpg" alt="Bhromor" />
@@ -531,7 +535,6 @@
               <a href="#" class="see-all">See all</a>
             </div>
             <div class="music-grid">
-              <!-- Cards for songs m9 through m12 -->
               <div class="music-card" data-song="m9">
                 <div class="card-img">
                   <img
@@ -593,6 +596,47 @@
             </div>
           </section>
         </div>
+
+        <!-- Liked Songs Content (Hidden by default) -->
+        <div class="content-wrapper" id="likedContent" style="display: none">
+          <section class="section">
+            <div class="section-header liked-header">
+              <div class="liked-hero">
+                <div class="liked-hero-image">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="liked-hero-info">
+                  <span class="liked-playlist-label">PLAYLIST</span>
+                  <h1>Liked Songs</h1>
+                  <div class="liked-stats">
+                    <span class="profile-name">D MAN</span>
+                    <span class="liked-count" id="likedCount">0 songs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="play-controls">
+              <button class="play-all-btn" id="playAllLiked">
+                <i class="fas fa-play"></i>
+                <span>Play</span>
+              </button>
+              <button class="shuffle-btn">
+                <i class="fas fa-random"></i>
+                <span>Shuffle</span>
+              </button>
+            </div>
+
+            <div class="liked-songs-list" id="likedSongsList">
+              <!-- Liked songs will be dynamically added here -->
+              <div class="empty-liked">
+                <i class="fas fa-heart"></i>
+                <h3>No liked songs yet</h3>
+                <p>Like songs by clicking the heart icon</p>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
 
@@ -611,7 +655,7 @@
           <h4 id="current-song-title">Bhromor</h4>
           <p id="current-song-artist">Fakira</p>
         </div>
-        <button class="like-btn">
+        <button class="like-btn" id="player-like-btn">
           <i class="far fa-heart"></i>
         </button>
       </div>
@@ -725,37 +769,14 @@
         id="m14"
         src="./fakira/FK4/Raai Jago (রাই জাগো) _ Prabhati song by FAKIRA _ Folk Fusion _ Hare Krishna(MP3_160K).mp3"
       ></audio>
-
-      <!-- Recently Played -->
-      <!-- <audio id="m13" src="./music5/Merry-Go-Round of Life (from Howl_s Moving Castle)(MP3_160K).mp3"></audio>
-        <audio id="m14" src="./music5/Sanson Ki Mala (Violin Cover)  Leo Twins  The Quarantine Sessions - Leo Twins.mp3"></audio>
-        <audio id="m15" src="./music5/Long Distance Love  Coke Studio Bangla  Season 3  Ankan X Afrin  Shuvendu - Coke Studio Bangla.mp3"></audio>
-        
-        <!-- Trending Now -->
-      <!--       
-        <audio id="m2" src="./music/Aami Shei Manushta Aar Nei (Original Motion Picture Soundtrack) - Anupam Roy.mp3"></audio>
-        <audio id="m3" src="./music/Thakte Dis Re Maa  Keshab Dey  থাকতে দিস রে মা  Shyama Sangeet  Bhakti Geeti  Devotional Song - Keshab Dey.mp3"></audio>
-        <audio id="m4" src="./music2/Jiya Tui Chara  Biye Bibhrat  Arijit Singh  Parambrata Chattopadhyay, Lahoma B  Ranajoy B - Zee Music Bangla.mp3"></audio>
-        <audio id="m5" src="./music2/Anuv Jain - HUSN (Official Video) - Anuv Jain.mp3"></audio>
-        <audio id="m6" src="./music2/Jhol  Coke Studio Pakistan  Season 15  Maanu x Annural Khalid - Coke Studio Pakistan.mp3"></audio>
-        <audio id="m7" src="./music3/Ehsaas (Lyric Video) Faheem Abdullah  Vaibhav Pani  Hyder Dar - Universal Music India.mp3"></audio>
-        <audio id="m8" src="./music3/Sokhi Tora Prem Koriyo Na  সখি তোরা প্রেম করিয়ো না   Full Video  Anirban Sur  Bengali Folk - Anirban Sur.mp3"></audio>
-         -->
-      <!-- Featured Charts -->
-      <!-- <audio id="m9" src="./music3/I Think They Call This Love (Cover) - Matthew Ifield.mp3"></audio>
-        <audio id="m10" src="./music4/Ed Sheeran - Azizam (Pink Heart Video) - Ed Sheeran.mp3"></audio>
-        <audio id="m11" src="./music4/Charlie Puth - Attention [Official Video] - Charlie Puth.mp3"></audio>
-        <audio id="m12" src="./music4/Chanakya - Rishab Rikhiram Sharma (Live from Mumbai)  Sitar for Mental Health Tour 2024 - Rishab Rikhiram Sharma.mp3"></audio> -->
-      -->
     </div>
 
-    <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav">
-      <a href="#" class="nav-item active">
+      <a href="#" class="nav-item active" id="mobile-home-nav">
         <i class="fas fa-home"></i>
         <span>Home</span>
       </a>
-      <a href="#" class="nav-item">
+      <a href="#" class="nav-item" id="mobile-search-nav">
         <i class="fas fa-search"></i>
         <span>Search</span>
       </a>
@@ -763,12 +784,11 @@
         <i class="fas fa-book"></i>
         <span>Library</span>
       </a>
-      <a href="#" class="nav-item">
-        <i class="fas fa-music"></i>
-        <span>Premium</span>
+      <a href="#" class="nav-item" id="mobile-liked-nav">
+        <i class="fas fa-heart"></i>
+        <span>Liked</span>
       </a>
     </nav>
-
     <!-- Script -->
     <script src="script.js"></script>
   </body>
